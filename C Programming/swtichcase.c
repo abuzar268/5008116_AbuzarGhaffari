@@ -1,56 +1,49 @@
 #include <stdio.h>
 
 int main() {
-    int day;
-    int result;
-
+    char ch;
+    // running an infinite while loop which is alsways true
+    
     while (1) {
-        // Prompt user
         printf("\nEnter a day number between 1 to 7 (or 0 to exit): ");
-        result = scanf("%d", &day);
+        scanf(" %c", &ch);
 
-        // Handle non-numeric input (symbols, letters, etc.)
-        if (result != 1) {
-            printf("Invalid input! Only numbers are allowed.\n");
-
-            // Clear input buffer
-            while (getchar() != '\n');
-            continue;
-        }
-
-        // Exit condition
-        if (day == 0) {
+        if (ch == '0') {
             printf("Exiting the program.\n");
-            break;
+            break;     // the while loop break when user enters '0'
+        }
+        // this is the case when the user enters other character or symbol other than 0 to 7
+        if (ch < '1' || ch > '7') {
+            printf("Invalid input! Please enter a number from 1 to 7.\n");
+            continue;  
         }
 
-        // Validate input range
-        if (day < 1 || day > 7) {
-            printf("Invalid day! Please enter a number from 1 to 7.\n");
-            continue;
-        }
-
-        // Display corresponding weekday
-        switch (day) {
-            case 1:
+        switch (ch) {
+            case '1':
                 printf("Monday\n");
                 break;
-            case 2:
+
+            case '2':
                 printf("Tuesday\n");
                 break;
-            case 3:
+
+            case '3':
                 printf("Wednesday\n");
                 break;
-            case 4:
+
+            case '4':
                 printf("Thursday\n");
                 break;
-            case 5:
+
+            case '5':
                 printf("Friday\n");
                 break;
-            case 6:
+
+            case '6':
                 printf("Saturday\n");
                 break;
-            case 7:
+
+            case '7':
                 printf("Sunday\n");
                 break;
         }
